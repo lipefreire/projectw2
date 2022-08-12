@@ -13,10 +13,10 @@ Projeto relacionado ao curso de Sistemas para Internet, durante o 4º período, 
 - Deve ir no arquivo "application.properties".
 - Pesquisar por "Jpa Spring application MySQL" para encontrar a configuração pronta.
 - Cola as informações de acordo com o banco de dados:
-    . spring.jpa.hibernate.ddl-auto=update
-    . spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example?useTimezona=true&
-    . spring.datasource.username=springuser
-    . spring.datasource.password=ThePassword
-    . spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-    . #spring.jpa.show-sql: true
+    - spring.jpa.hibernate.ddl-auto=update
+    - spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example?useTimezona=true&
+    - spring.datasource.username=springuser
+    - spring.datasource.password=ThePassword
+    - spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+    - #spring.jpa.show-sql: true
 - Banco configurado.

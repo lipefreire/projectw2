@@ -8,15 +8,19 @@
 		<version>2.7.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.edu.ifsertaope.cs</groupId>
-	<artifactId>projetobasic</artifactId>
+	<groupId>com.consultorioapp</groupId>
+	<artifactId>projetopw2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>projetopw2</name>
-	<description>Projeto exemplo</description>
+	<description>Projeto básico usando Spring</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -29,11 +33,21 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
 	</dependencies>
+	
 
 	<build>
 		<plugins>

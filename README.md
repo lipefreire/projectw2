@@ -20,3 +20,8 @@ Projeto relacionado ao curso de Sistemas para Internet, durante o 4º período, 
     - spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
     - #spring.jpa.show-sql: true
 - Banco configurado.
+
+# Padrão de projeto
+- MVP
+- Singleton
+https://www.tutorialspoint.com/design_pattern/singleton_pattern.htm

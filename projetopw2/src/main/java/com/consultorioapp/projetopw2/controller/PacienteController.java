@@ -2,6 +2,7 @@ package com.consultorioapp.projetopw2.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,6 +34,14 @@ public class PacienteController {
 		ModelAndView mv = new ModelAndView("index");
 		Iterable<Paciente> pacientes = pr.findAll();
 		mv.addObject("paciente", pacientes);
+		return mv;
+	}
+	
+	@RequestMapping("/{id}")
+	public ModelAndView detalhesConsulta(@PathVariable("id") long id) {
+		Paciente paciente = pr.findById(id);
+		ModelAndView mv = new ModelAndView("evento/detalhesConsulta");
+		mv.addObject("paciente", paciente);
 		return mv;
 	}
 }

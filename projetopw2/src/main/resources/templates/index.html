@@ -15,7 +15,7 @@
 <body>
 	<h1>Lista de Pacientes</h1>
 	<h3><a href="/cadastrarPaciente" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Paciente</a></h3>
-	<table>
+	<table class="container">
 		<thead>
 			<tr>
 				<th>Nome</th>
@@ -27,7 +27,7 @@
 		</thead>
 		<tbody>
 			<tr th:each="paciente : ${paciente}">
-			<td><span th:text="${paciente.nome}"></span></td>
+			<td><a th:href="${(#mvc.url('PC#detalhesConsulta').arg(0, paciente.id)).build()}"><span th:text="${paciente.nome}"></span></a></td>
 			<td><span th:text="${paciente.email}"></span></td>
 			<td><span th:text="${paciente.dataNascimento}"></span></td>
 			<td><span th:text="${paciente.cpf}"></span></td>

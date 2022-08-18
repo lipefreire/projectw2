@@ -11,7 +11,7 @@ public class Consulta {
 	private String descricao;
 	private String dataConsulta;
 	private String horarioConsulta;
-	private String nomeMedico;
+	private String nomeDentista;
 	
 	@ManyToOne
 	private Paciente paciente;
@@ -40,11 +40,11 @@ public class Consulta {
 	public void setHorarioConsulta(String horarioConsulta) {
 		this.horarioConsulta = horarioConsulta;
 	}
-	public String getNomeMedico() {
-		return nomeMedico;
+	public String getNomeDentista() {
+		return nomeDentista;
 	}
-	public void setNomeMedico(String nomeMedico) {
-		this.nomeMedico = nomeMedico;
+	public void setNomeDentista(String nomeDentista) {
+		this.nomeDentista = nomeDentista;
 	}
 	public Paciente getPaciente() {
 		return paciente;

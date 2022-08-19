@@ -21,14 +21,29 @@
 		</div>
 		
 		<form method="post">
-			RG: <input type="text" value="" name="rg">
-			Descricao: <input type="text" value="" name="descricao">
+			<Strong>Descricao: </Strong><input type="text" value="" name="descricao">
 			Data da Consulta<input type="date" value="" name="dataConsulta">
 			Horário da Consulta<input type="text" value="" name="horarioConsulta">
 			Dentista Responsável<input type="text" value="" name="nomeDentista">
 			<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
 		</form>
 	</div>
+	
+	<h5>Lista de Consultas: </h5>
+	<div class="container" th:each="consulta : ${consultas}">
+		<div class="row">
+			<div class="input field col s6">
+				<p><Strong>Código: </Strong><span th:text="${consulta.codigo}"></span></p>
+			</div>
+			<div class="input field col s3">
+				<p><Strong>Descricao: </Strong><span th:text="${consulta.descricao}"></span></p>
+				<p><Strong>Data: </Strong><span th:text="${consulta.dataConsulta}"></span></p>
+				<p><Strong>Horario: </Strong><span th:text="${consulta.horarioConsulta}"></span></p>
+				<p><Strong>Dentista: </Strong><span th:text="${consulta.nomeDentista}"></span></p>
+			</div>
+		</div>
+	</div>
+	
 	
 	
 	<!--JavaScript at end of body for optimized loading-->

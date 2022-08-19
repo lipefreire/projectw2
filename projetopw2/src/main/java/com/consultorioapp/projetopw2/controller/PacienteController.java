@@ -47,6 +47,11 @@ public class PacienteController {
 		Paciente paciente = pr.findById(id);
 		ModelAndView mv = new ModelAndView("evento/detalhesConsulta");
 		mv.addObject("paciente", paciente);
+		
+		// ENVIA PARA A VIEW (DETALHES CONSULTA) 
+		Iterable<Consulta> consultas = cr.findByPaciente(paciente);
+		mv.addObject("consultas", consultas);
+		
 		return mv;
 	}
 	

@@ -1,0 +1,14 @@
+package com.consultorioapp.projetopw2.models;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Consulta {
+	@Id
+	private String rg;
+	private String descricao;
+	private String dataConsulta;
+	private String horarioConsulta;
+	
+}

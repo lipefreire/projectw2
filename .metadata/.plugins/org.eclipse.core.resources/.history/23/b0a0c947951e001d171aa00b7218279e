@@ -1,0 +1,7 @@
+package com.consultorioapp.projetopw2.repository;
+
+import com.consultorioapp.projetopw2.models.Consulta;
+
+public class ConsultaRepository extends CrudRepository<Consulta, String> {
+	
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  
+<head>
+	<title>Consultório APP</title>
+</head>
+<body>
+	<h1>Lista de Pacientes</h1>
+	<h3><a href="/cadastrarPaciente">Cadastrar Paciente</a></h3>
+	
+	<div th:each="paciente : ${paciente}">
+		<div class="row">
+			<p><span th:text="${paciente.nome}"></span></p>
+		
+		</div>
+	
+	
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+package com.consultorioapp.projetopw2.models;
+
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+public class Consulta {
+	
+	@Id
+	private long id;
+	
+	private String descricao;
+	private String dataConsulta;
+	private String horarioConsulta;
+	private String valor;
+	private String Medico;
+	
+	@OneToMany
+	private Consulta consulta;
+	
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getDataConsulta() {
+		return dataConsulta;
+	}
+	public void setDataConsulta(String dataConsulta) {
+		this.dataConsulta = dataConsulta;
+	}
+	public String getHorarioConsulta() {
+		return horarioConsulta;
+	}
+	public void setHorarioConsulta(String horarioConsulta) {
+		this.horarioConsulta = horarioConsulta;
+	}
+	public String getValor() {
+		return valor;
+	}
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
+	public String getMedico() {
+		return Medico;
+	}
+	public void setMedico(String medico) {
+		Medico = medico;
+	}
+}

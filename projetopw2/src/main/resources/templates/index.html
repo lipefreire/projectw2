@@ -23,6 +23,7 @@
 				<th>Data de Nascimento</th>
 				<th>CPF</th>
 				<th>Telefone</th>
+				<th>Deletar </th>
 			</tr>
 		</thead>
 		<tbody>
@@ -32,6 +33,7 @@
 			<td><span th:text="${paciente.dataNascimento}"></span></td>
 			<td><span th:text="${paciente.cpf}"></span></td>
 			<td><span th:text="${paciente.telefone}"></span></td>
+			<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('PC#deletarPaciente').arg(0, paciente.id)).build()}"><i class="material-icons left">delete</i></a></td>
 			</tr>
 		</tbody>
 	</table>

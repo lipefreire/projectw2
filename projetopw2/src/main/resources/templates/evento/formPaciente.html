@@ -182,6 +182,8 @@ form label{
             <!-- Cabeçalho com Título e Subtítulo -->
             <h1>Cadastro de Pacientes</h1>
             <p id="subtitulo">Informações do paciente.</p>
+            
+            <th:block th:include="mensagemValidacao"></th:block>
         
             <!-- Início do Forms -->
               <form method="post">
@@ -214,11 +216,6 @@ form label{
                     <span>Telefone</span>
                     <input type="number" id="telefone" name="telefone" required >   
                 </label>
-                 <!-- Caixa de texto -->
-                <div class="message">
-                    <label for="problema"><strong>Problema do paciente: </strong> </label>
-                    <textarea rows="6" style="width: 25em" id="problema" name="problema"></textarea>
-                </div>
                 
                 
                 <!-- Botão que envia o Formulário -->

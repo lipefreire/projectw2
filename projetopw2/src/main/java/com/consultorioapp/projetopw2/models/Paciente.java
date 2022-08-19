@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+@SuppressWarnings("deprecation")
 @Entity
 public class Paciente implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -17,10 +20,15 @@ public class Paciente implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@NotEmpty
 	private String nome;
-	private String cpf;		
+	@NotEmpty
+	private String cpf;
+	@NotEmpty
 	private String telefone;
+	@NotEmpty
 	private String email;
+	@NotEmpty
 	private String dataNascimento;
 	
 	@OneToMany

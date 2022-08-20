@@ -17,21 +17,25 @@ public class PacienteController {
 	
 	@Autowired
 	private PacienteRepository pr;
-	
 	@Autowired
 	private ConsultaRepository cr;
 	
-	@RequestMapping(value = "/cadastrarPaciente", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String form() {
+		return "evento/Inicio";
+	}
+
+	@RequestMapping(value = "/cadastrarPaciente", method = RequestMethod.GET)
+	public String form1() {
 		return "evento/formPaciente";
 	}
 	
 	@RequestMapping(value="/cadastrarPaciente", method = RequestMethod.POST)
-	public String form(Paciente paciente) {
+	public String form2(Paciente paciente) {
 		
 		pr.save(paciente);
 		
-		return "redirect:/cadastrarPaciente";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/pacientes")
@@ -41,14 +45,18 @@ public class PacienteController {
 		mv.addObject("paciente", pacientes);
 		return mv;
 	}
-	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ModelAndView detalhesConsulta(@PathVariable("id") long id) {
 		Paciente paciente = pr.findById(id);
 		ModelAndView mv = new ModelAndView("evento/detalhesConsulta");
 		mv.addObject("paciente", paciente);
+		
+		// ENVIA PARA A VIEW (DETALHES CONSULTA) 
+		Iterable<Consulta> consultas = cr.findByPaciente(paciente);
+		mv.addObject("consultas", consultas);	
 		return mv;
 	}
+
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.POST)
 	public String detalhesConsultaPost(@PathVariable("id") long id, Consulta consulta) {

@@ -1,13 +1,21 @@
 package com.consultorioapp.projetopw2.models;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Consulta {
+public class Consulta implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	@Id
-	private String rg;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long codigo;
+	
 	private String descricao;
 	private String dataConsulta;
 	private String horarioConsulta;
@@ -16,11 +24,11 @@ public class Consulta {
 	@ManyToOne
 	private Paciente paciente;
 	
-	public String getRg() {
-		return rg;
+	public long getCodigo() {
+		return codigo;
 	}
-	public void setRg(String rg) {
-		this.rg = rg;
+	public void setCodigo(long codigo) {
+		this.codigo = codigo;
 	}
 	public String getDescricao() {
 		return descricao;

@@ -1,38 +1,171 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
+  
+<html xmlns:th=xmlns:th="http://thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-	  
+
 <head>
-	<title>Consultório APP</title>
-	<!--Import Google Icon Font-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Consultando Dados</title>
+      
+     <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+      
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-</head>
-<body>
-	<h1>Consulta</h1>
-	<h3><a href="/pacientes" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de Pacientes</a></h3>
-	<div th:each="paciente : ${paciente}" class="container">
-		<div class="row">
-			<p>Agendar consulta para o paciente <span th:text="${paciente.nome}"></span></p>
-		</div>
+  
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		
-		<form method="post">
-			RG: <input type="text" value="" name="rg">
-			Descricao: <input type="text" value="" name="descricao">
-			Data da Consulta<input type="date" value="" name="dataConsulta">
-			Horário da Consulta<input type="text" value="" name="horarioConsulta">
-			Dentista Responsável<input type="text" value="" name="nomeDentista">
-			<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
-		</form>
-	</div>
+	<link rel="stylesheet" href="../../static/css/styleLista.css"
+	</head>
+
+<body>
+		<h3><a href="/pacientes" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de Pacientes</a></h3>
 	
-	
-	<!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+<style>
+    a{
+	 color: white;
+	}
+    *{margin: 0; padding: 0; box-sizing: border-box;}
+
+    body{
+        background-color: #5F7C8A;
+    }
+
+    form{
+        background-color: white;
+        max-width: 500px;
+        width: 70%;
+        padding: 20px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    form h3 {
+        text-align: center;
+        color: #5F7C8A;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin-bottom: 15px;
+    }
+
+    form input[type = circulo],
+    form input[type = password] {
+        width: 100%;
+        height: 45px;
+        border: 1px solid #ccc;
+        padding-left: 10px;
+        margin: 10px 0;
+        text-align:center
+    }
+
+    form input[type=submit] {
+        width: 100%;
+        height: 40px;
+        cursor: pointer;
+        background-color: #5F7C8A;
+        color: white;
+        border: 0;
+        border-radius: 20px;
+        transition: 0.5s;
+    }
+
+    form input[type=checkbox] {
+        margin-left: 50%;
+        margin-right: 50%;
+    }
+
+    form input[type=submit]:hover {
+        background-color: #6b95ac;
+    }
+
+    span{
+        position: relative;
+    }
+      form input[type=number] {
+        width: 100%;
+        height: 45px;
+        border: 1px solid #ccc;
+        padding-left: 10px;
+        margin: 10px 0;     
+        text-align:center 
+    }
+     form input[type=date],
+     form input[type=time]{
+        width: 100%;
+        height: 45px;
+        border: 1px solid #ccc;
+        padding-left: 10px;
+        margin: 10px 0;     
+		text-align:center
+    }
+   
+</style>         
+
+        
+         <body>
+           <form method="post">
+		<!-- Header do Formulario -->
+		 <h3>Agendar paciente</h3>
+		<div th:each="paciente : ${paciente}" class="container">
+		<div class="row">
+			<p><strong>Agendar Consulta para: </strong><span th:text="${paciente.nome}"></span></p>
+			
+		</div>
+                  
+                <!-- Campo onde é adicionado a Desc -->
+                    <input type="circulo" id="descricao" name="descricao" required placeholder ="Descrição">   
+                
+             <!-- Campo onde é adicionado a Data da consulta -->
+                  <input type="date" id="data" name="dataConsulta" required placeholder = "Data da Consulta"/>   
+
+                <!-- Campo onde é adicionado a Hora-->
+               
+                   <p><input type="time" id="horarioConsulta" name="horarioConsulta" required> </p>
+		
+  			<!-- Campo onde sera Informado o Medico-->     
+              <input type="circulo" value="" name="nomeDentista" required placeholder="Digite o Nome do Dentista">
+                
+                <!-- Botão que envia o Formulário -->
+               
+               <br> <input type="submit" name="Concluido" value="Concluido" /></br> 
+             
+            </form> 
+            
+           
+           
+           	<table class="container tabelaConvidado">	
+		<thead>
+			<tr>
+				<th>Codigo</th>
+				<th>Descrição</th>
+				<th>Data</th>
+				<th>Horario</th>
+				<th>Dentista<th>	
+						
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="consulta : ${consulta}">
+				<td><span th:text="${consulta.codigo}"></span></td>
+				<td><span th:text="${consulta.descricao}"></span></td>
+				<td><span th:text="${consulta.dataConsulta}"></span></td>
+				<td><span th:text="${consulta.horarioConsulta}"></span></td>
+				<td><span th:text="${consulta.nomeDentista}"></span></td>
+				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('PC#deletarPaciente').arg(0, consulta.codigo)).build()}"><i class="material-icons left">delete</i></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+      	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   	   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 
 </body>
-</html>
+
+
+</html> 

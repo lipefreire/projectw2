@@ -5,92 +5,18 @@
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		 
+	<!--Import Style-->	
+	<link rel="stylesheet" href="css/styleForms.css"
+	
 	</head>
+
 <body>
 		<a class="navbar-brand" href="/">Sistema Odontologico</a>
 		<a href="/pacientes" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de Pacientes</a>
-	
+		<th:block th:include="mensagemValidacao"></th:block>
 </body>
-
-<style>
-    a{
-	 color: white;
-	}
-    *{margin: 0; padding: 0; box-sizing: border-box;}
-
-    body{
-        background-color: #5F7C8A;
-    }
-
-    form{
-        background-color: white;
-        max-width: 500px;
-        width: 70%;
-        padding: 20px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
-    }
-
-    form h3 {
-        text-align: center;
-        color: #5F7C8A;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        margin-bottom: 15px;
-    }
-
-    form input[type = circulo],
-    form input[type = password] {
-        width: 100%;
-        height: 45px;
-        border: 1px solid #ccc;
-        padding-left: 10px;
-        margin: 10px 0;
-        text-align:center
-    }
-
-    form input[type=submit] {
-        width: 100%;
-        height: 40px;
-        cursor: pointer;
-        background-color: #5F7C8A;
-        color: white;
-        border: 0;
-        border-radius: 20px;
-        transition: 0.5s;
-    }
-
-    form input[type=checkbox] {
-        margin-left: 50%;
-        margin-right: 50%;
-    }
-
-    form input[type=submit]:hover {
-        background-color: #6b95ac;
-    }
-
-    span{
-        position: relative;
-    }
-      form input[type=number] {
-        width: 100%;
-        height: 45px;
-        border: 1px solid #ccc;
-        padding-left: 10px;
-        margin: 10px 0;     
-        text-align:center 
-    }
-     form input[type=date] {
-        width: 100%;
-        height: 45px;
-        border: 1px solid #ccc;
-        padding-left: 10px;
-        margin: 10px 0;     
-		text-align:center
-    }
-   
-</style>         
+	 
          <body>
            <form method="post">
 		<!-- Header do Formulario -->

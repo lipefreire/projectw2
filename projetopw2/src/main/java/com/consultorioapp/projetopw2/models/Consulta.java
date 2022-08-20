@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Consulta implements Serializable{
@@ -16,9 +17,13 @@ public class Consulta implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long codigo;
 	
+	@NotEmpty
 	private String descricao;
+	@NotEmpty
 	private String dataConsulta;
+	@NotEmpty
 	private String horarioConsulta;
+	@NotEmpty
 	private String nomeDentista;
 	
 	@ManyToOne

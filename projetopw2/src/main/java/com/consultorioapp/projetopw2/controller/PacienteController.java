@@ -1,11 +1,15 @@
 package com.consultorioapp.projetopw2.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.consultorioapp.projetopw2.models.Consulta;
 import com.consultorioapp.projetopw2.models.Paciente;
@@ -31,12 +35,11 @@ public class PacienteController {
 	}
 	
 	@RequestMapping(value="/cadastrarPaciente", method = RequestMethod.POST)
-	public String form2(Paciente paciente) {
-		
-		pr.save(paciente);
-		
-		return "redirect:/";
-	}
+		public String form2(@Valid Paciente paciente, BindingResult result, RedirectAttributes attributes) {		
+			pr.save(paciente);
+			attributes.addFlashAttribute("mensagem", "Paciente cadastrado com sucesso!");
+			return "redirect:/cadastrarPaciente";
+		}
 	
 	@RequestMapping("/pacientes")
 	public ModelAndView listaPacientes() {
@@ -57,12 +60,19 @@ public class PacienteController {
 		return mv;
 	}
 
+	@RequestMapping("/deletarPaciente")
+	public String deletarPaciente(long id) {
+		Paciente paciente = pr.findById(id);
+		pr.delete(paciente);
+		return "redirect:/pacientes";
+	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.POST)
-	public String detalhesConsultaPost(@PathVariable("id") long id, Consulta consulta) {
+	public String detalhesConsultaPost(@PathVariable("id") long id, @Valid Consulta consulta, BindingResult result, RedirectAttributes attributes) {
 		Paciente paciente = pr.findById(id);
 		consulta.setPaciente(paciente);
 		cr.save(consulta);
+		attributes.addFlashAttribute("mensagem", "Consulta agendada com sucesso!");
 		return "redirect:/{id}";
 	}
 }

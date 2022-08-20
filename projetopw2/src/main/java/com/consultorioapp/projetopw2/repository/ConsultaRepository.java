@@ -7,4 +7,5 @@ import com.consultorioapp.projetopw2.models.Paciente;
 
 public interface ConsultaRepository extends CrudRepository<Consulta, String> {
 	Iterable<Consulta> findByPaciente(Paciente paciente);
+	Consulta findByCodigo(long codigo);
 }

@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+@SuppressWarnings("deprecation")
 @Entity
 public class Consulta implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -16,9 +19,13 @@ public class Consulta implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long codigo;
 	
+	@NotEmpty
 	private String descricao;
+	@NotEmpty
 	private String dataConsulta;
+	@NotEmpty
 	private String horarioConsulta;
+	@NotEmpty
 	private String nomeDentista;
 	
 	@ManyToOne

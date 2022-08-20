@@ -1,4 +1,4 @@
-<html>
+ <html>
 	<head>
 	<title>Cadastrar</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -98,12 +98,13 @@
          <form method="post">
 
 		 <h3>Cadastrar paciente</h3>
-               <input type="circulo" id="nome" name="nome" required placeholder ="Digite o Nome do Paciente">   
-                    <input type="circulo" id="email" name="email" required placeholder ="Digite um Email para contato">   
-                  <input type="circulo" id="cpf" name="cpf" required placeholder = "Digite um CPF no formato: xxx.xxx.xxx-xx"/>   
-                   <p><input type="date" id="dataNascimento" name="dataNascimento" required> </p>
-  				<input type = "number" id="telefone" name="telefone" required placeholder= "(xx) xxxxx-xxxx">
-               <br> <input type="submit" name="Concluido" value="Concluido" /></br> 
+		 
+				<input th:attr="value=${paciente.nome}" type="circulo" id="nome" name="nome" required placeholder ="Digite o Nome do Paciente">   
+				<input th:attr="value=${paciente.email}" type="circulo" id="email" name="email" required placeholder ="Digite um Email para contato">   
+				<input th:attr="value=${paciente.cpf}" type="circulo" id="cpf" name="cpf" required placeholder = "Digite um CPF no formato: xxx.xxx.xxx-xx"/>   
+				<input th:attr="value=${paciente.dataNascimento}" type="date" id="dataNascimento" name="dataNascimento" required>
+				<input th:attr="value=${paciente.telefone}" type = "number" id="telefone" name="telefone" required placeholder= "(xx) xxxxx-xxxx">
+				<br> <input type="submit" name="Concluido" value="Concluido" /></br> 
          
              
             </form> 

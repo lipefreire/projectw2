@@ -20,6 +20,8 @@
 			<p>Agendar consulta para o paciente <span th:text="${paciente.nome}"></span></p>
 		</div>
 		
+		<th:block th:include="mensagemValidacao"></th:block>
+		
 		<form method="post">
 			<Strong>Descricao: </Strong><input type="text" value="" name="descricao">
 			Data da Consulta<input type="date" value="" name="dataConsulta">
@@ -40,6 +42,8 @@
 				<p><Strong>Data: </Strong><span th:text="${consulta.dataConsulta}"></span></p>
 				<p><Strong>Horario: </Strong><span th:text="${consulta.horarioConsulta}"></span></p>
 				<p><Strong>Dentista: </Strong><span th:text="${consulta.nomeDentista}"></span></p>
+				<p><Strong>Deletar </Strong><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('CC#deletarConsulta').arg(0, consulta.codigo)).build()}"><i class="material-icons left">delete</i></a></p>
+				<Strong>Editar </Strong><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('CC#deletarConsulta').arg(0, consulta.codigo)).build()}"><i class="material-icons left">edit</i></a>
 			</div>
 		</div>
 	</div>

@@ -22,8 +22,5 @@ Projeto relacionado ao curso de Sistemas para Internet, durante o 4º período, 
 - Banco configurado.
 
 # Padrão de projeto
-- MVP
-- Singleton
-https://www.tutorialspoint.com/design_pattern/singleton_pattern.htm
-
-https://www.tutorialspoint.com/design_pattern/composite_pattern.htm
+- MVP 
+- Data Transfer Object 

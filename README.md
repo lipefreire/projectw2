@@ -9,6 +9,9 @@ Projeto relacionado ao curso de Sistemas para Internet, durante o 4º período, 
 - Spring Boot DevTools
 - MySQL Driver
 
+# Frameworks
+- Hibernate
+
 # Conexão Database
 - Deve ir no arquivo "application.properties".
 - Pesquisar por "Jpa Spring application MySQL" para encontrar a configuração pronta.
